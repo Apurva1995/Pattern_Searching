@@ -13,7 +13,7 @@ void findIndexesOfPat(char *text, char *pat, int *lps) {
     while(i < len1) {
         
         j = lps[j-1];
-        while(j < len2) {
+        while(j < len2 && i < len1) {
             
             if(text[i] == pat[j]) {
                 i++;
@@ -46,8 +46,8 @@ void preprocess(int *lps, char *pat) {
 
 int main(void) {
 	
-	char text[] = "AABAACAADAABAAABAA";
-	char pat[] = "AABAA";
+	char text[] = "ABCABCDEFGH";
+	char pat[] = "ABCDEF";
 	int lps[strlen(pat)];
 	
 	preprocess(lps, pat);
