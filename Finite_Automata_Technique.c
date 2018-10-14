@@ -1,4 +1,4 @@
-\*
+/*
 *Time complexity : O((m^3) * NO_OF_CHARACTERS) For computing state table, 
                   where 
                   'm' is the length of pattern to search 
