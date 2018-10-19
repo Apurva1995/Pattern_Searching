@@ -31,17 +31,28 @@ void findIndexesOfPat(char *text, char *pat, int *lps) {
 }
 
 void preprocess(int *lps, char *pat) {
-    
-    int len = strlen(pat);
+    int len = 0; 
+  
     lps[0] = 0;
-    
-    for(int i=1;i<len;i++) {
-        
-        if(pat[lps[i-1]] == pat[i])
-            lps[i] = lps[i-1] + 1;
+    int i = 1; 
+    while (i < M) { 
+        if (pat[i] == pat[len]) { 
+            len++; 
+            lps[i] = len; 
+            i++; 
+        } 
         else
-            lps[i] = 0;
-    }
+        {
+            if (len != 0) { 
+                len = lps[len - 1];
+            } 
+            else 
+            { 
+                lps[i] = 0; 
+                i++; 
+            } 
+        } 
+    } 
 }
 
 int main(void) {
